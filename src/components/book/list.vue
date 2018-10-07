@@ -22,29 +22,17 @@
       </el-col>
 
       <!--列表-->
-      <el-table :data="books" highlight-current-row @selection-change="selsChange" style="width: 100%;">
+      <el-table :data="books" border highlight-current-row @selection-change="selsChange" style="width: 100%;">
 
-        <el-table-column type="selection" width="55"></el-table-column>
-        <el-table-column type="index" width="60"></el-table-column>
-        <el-table-column type="expand">
+        <el-table-column type="selection" width="55"> </el-table-column>
 
-          <template slot-scope="props">
-            <el-form label-position="left" inline class="demo-table-expand">
-              <el-form-item label="[图书简介]">
-                <span>{{ props.row.description }}</span>
-              </el-form-item>
-            </el-form>
-          </template>
+        <el-table-column fixed prop="name" label="书名" width="180" sortable></el-table-column>
 
-        </el-table-column>
+        <el-table-column prop="author" label="作者" width="180" sortable></el-table-column>
 
-        <el-table-column prop="name" label="书名" sortable></el-table-column>
+        <el-table-column prop="publishAt" label="出版日期" width="250" sortable></el-table-column>
 
-        <el-table-column prop="author" label="作者" width="100" sortable></el-table-column>
-
-        <el-table-column prop="publishAt" label="出版日期" width="150" sortable></el-table-column>
-
-        <el-table-column label="操作" width="150">
+        <el-table-column label="操作" width="150" center>
           <template slot-scope="scope">
             <el-button size="small" @click="showEditDialog(scope.$index,scope.row)">修改</el-button>
             <el-button type="danger" @click="delBook(scope.$index,scope.row)" size="small">删除</el-button>
@@ -90,24 +78,32 @@
 
       <!--新增界面-->
       <el-dialog title="新增" :visible.sync ="addFormVisible" :close-on-click-modal="false">
+
         <el-form :model="addForm" label-width="80px" :rules="addFormRules" ref="addForm">
+
           <el-form-item label="书名" prop="name">
             <el-input v-model="addForm.name" auto-complete="off"></el-input>
           </el-form-item>
+
           <el-form-item label="作者" prop="author">
             <el-input v-model="addForm.author" auto-complete="off"></el-input>
           </el-form-item>
+
           <el-form-item label="出版日期">
             <el-date-picker type="date" placeholder="选择日期" v-model="addForm.publishAt"></el-date-picker>
           </el-form-item>
+
           <el-form-item label="简介" prop="description">
             <el-input type="textarea" v-model="addForm.description" :rows="8"></el-input>
           </el-form-item>
+
         </el-form>
+
         <div slot="footer" class="dialog-footer">
           <el-button @click.native="addFormVisible = false">取消</el-button>
           <el-button type="primary" @click.native="addSubmit" :loading="addLoading">提交</el-button>
         </div>
+        
       </el-dialog>
 
     </el-col>
