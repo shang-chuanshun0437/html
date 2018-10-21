@@ -9,8 +9,8 @@
 
     <div>
       <el-menu class = "weiyi-top-nav" 
-      mode="horizontal" active-text-color="#000000" text-color="#FFFFFF" >
-        <el-menu-item style = "font-size: 16px;" index="1">首页</el-menu-item>
+      mode="horizontal" :default-active="$route.path" router active-text-color="#FFFFFF" text-color="#000000" >
+        <el-menu-item index = "/summary" style = "font-size: 16px;">首页</el-menu-item>
         <el-menu-item style = "font-size: 16px;" index="2">订单列表</el-menu-item>
         <el-menu-item style = "font-size: 16px;" index="3">用户</el-menu-item>
         <el-menu-item style = "font-size: 16px;" index="4">统计</el-menu-item>
@@ -47,5 +47,10 @@ export default {
 </script>
 
 <style scoped>
-
+  .el-menu-item:hover {
+   background-color: #ffffff !important;
+  }
+  .el-menu-item.is-active {
+   background-color: rgb(43, 127, 247) !important;
+  }
 </style>
