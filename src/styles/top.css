@@ -1,0 +1,28 @@
+.weiyi-header {
+    height: 60px;
+    background-color: #2b7ff7;
+}
+
+.weiyi-logo {
+    top: 15px;
+    width: 30px;
+    height: auto;
+    left: 100px;
+    position: absolute;
+}
+
+.weiyi-top-nav {
+    top: 0px;
+    width: 380px;
+    left: 200px;
+    position: absolute;
+    background-color: #2b7ff7;
+}
+
+.weiyi-top-dropdown {
+    top: 20px;
+    width: 120px;
+    right: 40px;
+    position: absolute;
+    background-color: #2b7ff7;
+}
