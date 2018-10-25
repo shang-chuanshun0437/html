@@ -6,6 +6,7 @@ import router from './router/fullPath'
 
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
+import "./assets/icon/iconfont.css"
 
 //全局css
 import "@/styles/top.css"

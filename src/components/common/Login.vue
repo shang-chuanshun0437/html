@@ -2,11 +2,14 @@
   <el-form ref="AccountFrom" :model="account" :rules="rules" class="login-container">
     <h3 class="title">欢迎登录</h3>
     <el-form-item prop="username">
-      <el-input type="text" v-model="account.username" auto-complete="off" placeholder="手机号"></el-input>
+      <el-input type="text" v-model="account.username" prefix-icon="el-icon-ali-login_zhanghu"
+                auto-complete="off" placeholder="手机号">
+      </el-input>
     </el-form-item>
 
     <el-form-item prop="pwd">
-      <el-input type="password" v-model="account.pwd" auto-complete="off" placeholder="密码"></el-input>
+      <el-input type="password" v-model="account.pwd" prefix-icon="el-icon-ali-login_mima"
+      auto-complete="off" placeholder="密码"></el-input>
     </el-form-item>
 
     <el-form-item style="width:100%;">

@@ -6,9 +6,18 @@
 
     <div>
       <el-menu :default-active="$route.path" router class="el-menu-demo">
-        <el-menu-item index = "/summary" style = "font-size: 16px;">概况</el-menu-item>
-        <el-menu-item index = "/instructions" style = "font-size: 16px;" >使用说明</el-menu-item>
-        <el-menu-item style = "font-size: 16px;" >技术支持</el-menu-item>
+        <el-menu-item index = "/summary" style = "font-size: 16px;">
+          <i class="el-icon-menu"></i>
+          <span slot="title">概况</span>
+        </el-menu-item>
+        <el-menu-item index = "/instructions" style = "font-size: 16px;">
+          <i class="el-icon-ali-login_mima"></i>
+          <span slot="title">使用说明</span>
+        </el-menu-item>
+        <el-menu-item index = "/3" style = "font-size: 16px;">
+          <i class="el-icon-ali-jishuzhichizhichizhinengkefuzhinengfuwuzhinengzhichi"></i>
+          <span slot="title">技术支持</span>
+        </el-menu-item>
       </el-menu>
     </div>
     <!--右侧内容区-->

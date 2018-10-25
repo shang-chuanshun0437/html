@@ -4,17 +4,18 @@
         <el-col :span="8">
           <el-card class="device">
             <div slot="header" class="clearfix">
-              <span>设备数量</span>
-              <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+              <span>设备</span>
+              <el-button style="float: right; padding: 3px 0" type="text">查看详情</el-button>
             </div>
             <div >
               <img src="../assets/forest.png" class="device-image">
             </div>
-            <div class = "normal-device">
-              <span class = "text-style">正常设备</span>
+            <div class = "manage-device">
+              <span class = "text-style">管理的设备</span>
+              {{deviceNum}}
             </div>
-            <div class = "repair-device">
-              <span class = "text-style">报修设备</span>
+            <div class = "normal-device">
+              <span class = "text-style">普通设备</span>
             </div>
           </el-card>
         </el-col>
@@ -22,11 +23,17 @@
         <el-col :span="8">
           <el-card class="box-card">
             <div slot="header" class="clearfix">
-              <span>注册用户</span>
-              <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+              <span>用户</span>
+              <el-button style="float: right; padding: 3px 0" type="text">查看详情</el-button>
             </div>
-            <div v-for="o in 4" :key="o" class="text item">
-              {{'列表内容 ' + o }}
+            <div >
+              <img src="../assets/forest.png" class="device-image">
+            </div>
+            <div class = "manage-device">
+              <span class = "text-style">管理的设备</span>
+            </div>
+            <div class = "normal-device">
+              <span class = "text-style">普通设备</span>
             </div>
           </el-card>
         </el-col>
@@ -41,6 +48,7 @@
     data() {
       return {
         currentDate: new Date(),
+        deviceNum:1
       };
     },
     mounted: function () {   
@@ -69,12 +77,12 @@
   .text-style{
     font-size: 15px;
   }
-  .normal-device{
+  .manage-device{
     position: relative;
     left:100px;
     top: -50px;
   }
-  .repair-device{
+  .normal-device{
     position: relative;
     left:100px;
     top: -40px;
