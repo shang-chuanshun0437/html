@@ -8,6 +8,11 @@ import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import "./assets/icon/iconfont.css"
 
+//引入axios
+import Axios from 'axios'
+//给vue挂载一个属性
+Vue.prototype.$axios = Axios;
+
 //全局css
 import "@/styles/top.css"
 

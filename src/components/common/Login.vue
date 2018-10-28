@@ -13,7 +13,8 @@
     </el-form-item>
 
     <el-form-item style="width:100%;">
-      <el-button type="primary" style="width:100%;" :loading="loading">登录</el-button>
+      <el-button type="primary" style="width:40%;" :loading="loading">登录</el-button>
+      <el-button type="primary" style="width:40%;" @click.native.prevent="register" :loading="loading">注册</el-button>
     </el-form-item>
     
   </el-form>
@@ -38,6 +39,11 @@
         },
         checked: true
       };
+    },
+    methods:{
+        register(){
+          this.$router.push({path: '/register'});
+        }
     }
   }
 </script>
