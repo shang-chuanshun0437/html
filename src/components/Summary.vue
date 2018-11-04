@@ -12,7 +12,7 @@
             </div>
             <div class = "manage-device">
               <span class = "text-style">管理的设备</span>
-              {{deviceNum}}
+              {{manageTotal}}
             </div>
             <div class = "normal-device">
               <span class = "text-style">普通设备</span>
@@ -43,15 +43,59 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+  import * as API from "../axios/api";
+  import * as URL from "../axios/url";
+
   export default {
     name: 'Summary',
     data() {
       return {
-        currentDate: new Date(),
-        deviceNum:1
+       
       };
     },
+    created() {
+      this.refresh();
+    },
+    computed:{
+      ...mapState("device", {
+        manageTotal: state => state.manageTotal,
+        manageList: state => state.manageList,
+        unmanageTotal: state => state.unmanageTotal,
+        unmanageList: state => state.unmanageList,
+      }),
+    },
     mounted: function () {   
+    },
+    methods:{
+      refresh(){
+          console.log('console');
+          let user = JSON.parse(window.localStorage.getItem('access-user'));
+          var queryParams = Object.assign(
+            {},
+            { userPhone: user.userPhone, token: user.token}
+          );
+          //获取管理的设备列表
+          API.POST(URL.DEVICE_MANAGE_URL, queryParams)
+            .then(res => {
+              if (res.result.retCode === 0) {
+                this.$store.dispatch("device/manageList",res);
+              }
+            })
+            .catch(err => {
+              console.log(err);
+            });
+          //获取普通设备列表
+          API.POST(URL.DEVICE_UNMANAGE_URL, queryParams)
+            .then(res => {
+              if (res.result.retCode === 0) {
+                this.$store.dispatch("device/unmanageList",res);
+              }
+            })
+            .catch(err => {
+              console.log(err);
+            });
+      }
     }
   }
 </script>

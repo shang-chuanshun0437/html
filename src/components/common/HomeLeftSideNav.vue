@@ -1,5 +1,5 @@
 <template>
- <!-- 左侧导航栏 -->
+ <!-- 首页左侧导航栏 -->
  <el-row>
 
    <el-col :span="24" class="middle">
@@ -38,7 +38,7 @@
 
 <script>
 export default {
-  name: 'LeftSideNav',
+  name: 'HomeLeftSideNav',
   data () {
     return {
       username: 'Weflcome'
@@ -51,8 +51,9 @@ export default {
  /* 中间样式，包含左侧导航栏和右侧内容 flex布局 */
   .middle {
     display: flex;
-    position: absolute;
-    top: 0px;
+    position: fixed;
+    top: 50px;
+    left:0px;
     bottom: 100px;
   }
   

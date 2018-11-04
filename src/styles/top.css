@@ -1,5 +1,9 @@
 .weiyi-header {
     height: 60px;
+    width: 100%;
+    left: 0px;
+    border-left-width: 0;
+    margin: 0px;
     background-color: #2b7ff7;
 }
 

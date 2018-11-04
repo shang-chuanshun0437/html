@@ -12,6 +12,7 @@ export const catchError = function(error) {
                     message: error.response.data.message || "请求参数异常",
                     type: "error"
                 });
+
                 break;
             case 401:
                 sessionStorage.removeItem("user");
@@ -34,6 +35,7 @@ export const catchError = function(error) {
                     message: error.response.data.message || "服务端异常，请联系技术支持",
                     type: "error"
                 });
+
         }
     }
     return Promise.reject(error);

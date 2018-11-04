@@ -1,8 +1,8 @@
 <template>
   <el-form ref="AccountFrom" :model="account" :rules="rules" class="login-container">
     <h3 class="title">欢迎登录</h3>
-    <el-form-item prop="username">
-      <el-input type="text" v-model="account.username" prefix-icon="el-icon-ali-login_zhanghu"
+    <el-form-item prop="userPhone">
+      <el-input type="text" v-model="account.userPhone" prefix-icon="el-icon-ali-login_zhanghu"
                 auto-complete="off" placeholder="手机号">
       </el-input>
     </el-form-item>
@@ -13,7 +13,7 @@
     </el-form-item>
 
     <el-form-item style="width:100%;">
-      <el-button type="primary" style="width:40%;" :loading="loading">登录</el-button>
+      <el-button type="primary" style="width:40%;" @click.native.prevent="login"  :loading="loading">登录</el-button>
       <el-button type="primary" style="width:40%;" @click.native.prevent="register" :loading="loading">注册</el-button>
     </el-form-item>
     
@@ -21,16 +21,20 @@
 </template>
 
 <script>
+  import * as API from "../../axios/api";
+  import * as URL from "../../axios/url";
+
   export default {
     data() {
       return {
         loading: false,
         account: {
-          username: '',
+          userPhone: '',
           pwd: ''
         },
+        //参数校验
         rules: {
-          username: [
+          userPhone: [
             {required: true, message: '请输入账号', trigger: 'blur'},
           ],
           pwd: [
@@ -43,6 +47,30 @@
     methods:{
         register(){
           this.$router.push({path: '/register'});
+        },
+        login(){          
+          var loginParams = Object.assign(
+            {},
+            { userPhone: this.account.userPhone, password: this.account.pwd}
+          );
+          //发送登录请求
+          API.POST(URL.LOGIN_URL, loginParams)
+            .then(res => {
+              if (res.result.retCode === 0) {
+                this.$store.dispatch("login/login",res);
+                let result = {
+                  userPhone:res.userPhone,
+                  token:res.token
+                }
+                //将登录信息存储到本地
+                localStorage.setItem('access-user', JSON.stringify(result));  
+                //路由跳转
+                this.$router.push({path: '/summary'});
+              }
+            })
+            .catch(err => {
+              console.log(err);
+            });
         }
     }
   }

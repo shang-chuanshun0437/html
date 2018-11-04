@@ -1,7 +1,7 @@
 <template>
 <el-row>
     <div>
-     <HomeLeftSideNav></HomeLeftSideNav>
+     <DeviceLeftSideNav></DeviceLeftSideNav>
     </div>
 </el-row>
 
@@ -9,12 +9,12 @@
 
 <script>
 
-import HomeLeftSideNav from '@/components/common/HomeLeftSideNav';
+import DeviceLeftSideNav from './DeviceLeftSideNav';
 
 export default {
-  name: 'Home',
+  name: 'Device',
   components: {
-    HomeLeftSideNav
+    DeviceLeftSideNav
   }
   
 }

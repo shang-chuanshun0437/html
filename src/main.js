@@ -3,11 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router/fullPath'
-
+import store from './store/index'
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import "./assets/icon/iconfont.css"
-
+import swal from "sweetalert";
 //引入axios
 import Axios from 'axios'
 //给vue挂载一个属性
@@ -24,6 +24,7 @@ Vue.use(ElementUI);
 new Vue({
     el: '#app',
     router,
+    store,
     components: { App },
     render: h => h(App),
     template: '<App/>'
