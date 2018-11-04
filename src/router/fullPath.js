@@ -3,10 +3,15 @@ import Router from 'vue-router'
 import Login from '@/components/common/Login'
 import Register from '@/components/common/Register'
 import Home from '@/components/Home'
-import Device from '../views/device/Device'
 import Summary from '@/components/Summary'
+
+import Device from '../views/device/Device'
 import ManageDeviceList from '../views/device/ManageDeviceList'
 import UnManageDeviceList from '../views/device/UnManageDeviceList'
+
+import User from '../views/user/User'
+import UserList from '../views/user/UserList'
+
 import Instructions from '@/components/Instructions'
 import store from '../store/index'
 import { mapState } from "vuex";
@@ -50,7 +55,16 @@ let router = new Router({
                 { path: '/user/device/manage', component: ManageDeviceList, name: 'manageDeviceList' },
                 { path: '/user/device/unmanage', component: UnManageDeviceList, name: 'unManageDeviceList' }
             ]
-        }
+        },
+        {
+            path: '/device/user',
+            name: 'user',
+            component: User,
+            redirect: '/device/user/list',
+            children: [
+                { path: '/device/user/list', component: UserList, name: 'userList' },
+            ]
+        },
     ]
 
 })

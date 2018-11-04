@@ -12,8 +12,8 @@
           <el-menu class = "weiyi-top-nav" 
           mode="horizontal" :default-active="$route.path" router active-text-color="#FFFFFF" text-color="#000000" >
             <el-menu-item index = "/summary" style = "font-size: 16px;">首页</el-menu-item>
-            <el-menu-item index="/user/device/manage" style = "font-size: 16px;">设备列表</el-menu-item>
-            <el-menu-item style = "font-size: 16px;" index="3">用户</el-menu-item>
+            <el-menu-item index="/user/device/manage" style = "font-size: 16px;">设备管理</el-menu-item>
+            <el-menu-item index="/device/user" style = "font-size: 16px;">用户管理</el-menu-item>
             <el-menu-item style = "font-size: 16px;" index="4">统计</el-menu-item>
           </el-menu>
         </div>

@@ -65,8 +65,6 @@ export default {
         .then(res => {
           if (res.result.retCode === 0) {
             this.confirm=false;
-            // this.$router.push("/instructions");
-            // this.$router.push("/user/device");
             this.$emit("update:show", false); 
             parent.location.reload();
           }else
@@ -77,9 +75,11 @@ export default {
           }
         })
         .catch(err => {
+          if(err.response.status === 400)
+          {
+            this.$message.error('设备编号只包含数字！');
+          }
           this.confirm=false;
-          
-          
           console.log(err);
         });
     },
@@ -87,6 +87,15 @@ export default {
       this.$emit("update:show", false);
     }
   },
+   beforeUpdate() {
+      if( this.ruleForm.deviceNum != '' & this.ruleForm.deviceName != '')
+      {
+        this.confirm = false;
+      }
+      else{
+        this.confirm = true;
+      }
+    },
   created() {
     console.log('binddevice');
   }

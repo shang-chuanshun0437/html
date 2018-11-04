@@ -5,17 +5,18 @@
           <el-card class="device">
             <div slot="header" class="clearfix">
               <span>设备</span>
-              <el-button style="float: right; padding: 3px 0" type="text">查看详情</el-button>
+              <el-button style="float: right; padding: 3px 0" @click="deviceInfo" type="text">查看详情</el-button>
             </div>
             <div >
               <img src="../assets/forest.png" class="device-image">
             </div>
             <div class = "manage-device">
               <span class = "text-style">管理的设备</span>
-              {{manageTotal}}
+              &nbsp; &nbsp;&nbsp;{{manageTotal}}
             </div>
             <div class = "normal-device">
               <span class = "text-style">普通设备</span>
+              &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{unmanageTotal}}
             </div>
           </el-card>
         </el-col>
@@ -23,17 +24,14 @@
         <el-col :span="8">
           <el-card class="box-card">
             <div slot="header" class="clearfix">
-              <span>用户</span>
+              <span>子用户</span>
               <el-button style="float: right; padding: 3px 0" type="text">查看详情</el-button>
             </div>
             <div >
               <img src="../assets/forest.png" class="device-image">
             </div>
-            <div class = "manage-device">
-              <span class = "text-style">管理的设备</span>
-            </div>
             <div class = "normal-device">
-              <span class = "text-style">普通设备</span>
+              <span class = "text-style">子用户</span>
             </div>
           </el-card>
         </el-col>
@@ -95,7 +93,11 @@
             .catch(err => {
               console.log(err);
             });
-      }
+      },
+      deviceInfo(){
+        console.log('deviceInfo');
+        this.$router.push('/user/device/manage');
+      },
     }
   }
 </script>

@@ -6,7 +6,7 @@
 <template>
   <div >
     <div class="panel-heading">
-      <span  class="panel-text">管理的设备列表</span>
+      <span  class="panel-text">用户列表</span>
     </div>
     <el-row style="top:5px">
       <el-col :span="20">
@@ -18,16 +18,15 @@
     </el-row>
     <el-table v-loading="loading" :data="list" style="width: 100%" @row-click="clickRow" border stripe ref="moviesTable">
       <el-table-column type="selection" width="55"></el-table-column>
-      <el-table-column prop="deviceNum" label="设备编号" align="center"></el-table-column>
-      <el-table-column prop="deviceName" label="设备名称" align="center"></el-table-column>
-      <el-table-column width="80" prop="userCount" label="用户数量" align="center"></el-table-column>
-      <el-table-column prop="version" label="硬件版本" align="center"></el-table-column>
-      <el-table-column prop="updateTime" label="更新日期" align="center"></el-table-column>
-      <el-table-column prop="createTime" label="出厂日期" align="center"></el-table-column>
-      <el-table-column width="270" label="操作" align="center">
+      <el-table-column prop="deviceNum" label="用户账号" align="center"></el-table-column>
+      <el-table-column prop="deviceName" label="用户名称" align="center"></el-table-column>
+      <el-table-column width="80" prop="userCount" label="设备编号" align="center"></el-table-column>
+      <el-table-column prop="version" label="设备名称" align="center"></el-table-column>
+      <el-table-column prop="updateTime" label="有效期" align="center"></el-table-column>
+      <el-table-column prop="createTime" label="创建时间" align="center"></el-table-column>
+      <el-table-column label="操作" align="center">
         <template slot-scope="scope">
           <el-button size="mini" @click="handleEdit(scope.row.deviceNum)">编辑</el-button>
-          <el-button size="mini" @click="handleAddUser(scope.row.deviceNum,scope.row.deviceName)">添加用户</el-button>
           <el-button size="mini" type="danger" @click="handleDelete(scope.row.deviceNum,scope.row.deviceName)">删除</el-button>
         </template>
       </el-table-column>
@@ -37,9 +36,6 @@
       </el-pagination>
     </el-row>
 
-    <BindDevice :show.sync="bindShow" ></BindDevice>
-    <EditDevice :show.sync="editShow" :deviceNum.sync="editDeviceNum"></EditDevice>
-    <BindDeviceForUser :show.sync="bindForUserShow" :deviceNum.sync="forUserDeviceNum" :deviceName.sync="forUserDeviceName"></BindDeviceForUser>
   </div>
 
 </template>
@@ -49,9 +45,9 @@ import SearchForm from "../common/SearchForm";
 import { mapState } from "vuex";
 import * as API from "../../axios/api";
 import * as URL from "../../axios/url";
-import BindDevice from './BindDevice'
-import EditDevice from './EditDevice'
-import BindDeviceForUser from './BindDeviceForUser'
+// import BindDevice from './BindDevice'
+// import EditDevice from './EditDevice'
+// import BindDeviceForUser from './BindDeviceForUser'
 const searchData = [
   {
     name: "设备编号",
@@ -69,9 +65,6 @@ const searchData = [
 export default {
   components: {
     SearchForm,
-    BindDevice,
-    EditDevice,
-    BindDeviceForUser
   },
   computed: {
     ...mapState("device", {

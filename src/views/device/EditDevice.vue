@@ -82,6 +82,15 @@ export default {
       this.$emit("update:show", false);
     }
   },
+  beforeUpdate() {
+      if( this.ruleForm.deviceName != '')
+      {
+        this.confirm = false;
+      }
+      else{
+        this.confirm = true;
+      }
+  },
   created() {
     console.log('editDevice');
   }
