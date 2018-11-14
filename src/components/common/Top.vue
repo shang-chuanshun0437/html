@@ -1,7 +1,7 @@
 <template>
  <!-- 头部区域 -->
  <div class="header">
-    <el-row>
+    <el-row v-if="show">
 
       <el-col :span="24" class="weiyi-header">
         <div>
@@ -9,23 +9,23 @@
         </div>
 
         <div>
-          <el-menu class = "weiyi-top-nav" 
+          <el-menu class = "weiyi-top-nav"
           mode="horizontal" :default-active="$route.path" router active-text-color="#FFFFFF" text-color="#000000" >
             <el-menu-item index = "/summary" style = "font-size: 16px;">首页</el-menu-item>
             <el-menu-item index="/user/device/manage" style = "font-size: 16px;">设备管理</el-menu-item>
-            <el-menu-item index="/device/user" style = "font-size: 16px;">用户管理</el-menu-item>
-            <el-menu-item style = "font-size: 16px;" index="4">统计</el-menu-item>
+            <el-menu-item index="/device/user/list" style = "font-size: 16px;">用户管理</el-menu-item>
+            <el-menu-item index="/account/private" style = "font-size: 16px;" >账户信息</el-menu-item>
           </el-menu>
         </div>
 
         <div class = "weiyi-top-dropdown">
             <el-dropdown>
-              <span style = "color:#ffffff;font-size: 15px;" class="el-dropdown-link">下拉菜单<i class="el-icon-arrow-down el-icon--right"></i>
+              <span style = "color:#ffffff;font-size: 15px;" class="el-dropdown-link">{{userPhone}}<i class="el-icon-arrow-down el-icon--right"></i>
               </span>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>基本资料</el-dropdown-item>
-                <el-dropdown-item>修改密码</el-dropdown-item>
-                <el-dropdown-item>退出</el-dropdown-item>
+                <el-dropdown-item @click.native = "userInfo">基本资料</el-dropdown-item>
+                <el-dropdown-item @click.native = "changPassword">修改密码</el-dropdown-item>
+                <el-dropdown-item @click.native = "logout">退出登录</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
         </div>
@@ -33,17 +33,47 @@
       </el-col>
 
     </el-row>
-  </div>
+   <ChangePwd :show.sync="pwdShow"></ChangePwd>
+ </div>
 </template>
 
 <script>
-export default {
-  name: 'Top',
-  data () {
-    return {
-      username: 'Weflcome'
-    }
-  }
+  import { mapState } from "vuex";
+  import ChangePwd from "../../views/account/ChangPwd";
+  export default {
+    name: 'Top',
+    components: {
+      ChangePwd,
+    },
+    data () {
+      return {
+        pwdShow: false,
+        //userPhone: 'Welcome',
+      }
+    },
+    created() {
+      //let user = JSON.parse(window.localStorage.getItem('access-user'));
+      //this.userPhone = user.userPhone;
+    },
+    methods:{
+      logout(){
+        this.$router.push('/login');
+      },
+      changPassword(){
+        this.pwdShow = true;
+      },
+      userInfo(){
+        this.$router.push('/account/private');
+      },
+    },
+    computed: {
+      ...mapState("top", {
+        show: state => state.show,
+      }),
+      ...mapState("login", {
+        userPhone: state => state.userPhone,
+      }),
+    },
 }
 </script>
 

@@ -131,7 +131,7 @@ export default {
     },
     clickRow(row){
       this.$refs.moviesTable.toggleRowSelection(row)
-    }   ,
+    },
     handleEdit(deviceNum) {
       this.editDeviceNum = deviceNum;
       console.log('handleEdit');
@@ -147,7 +147,7 @@ export default {
     handleDelete(deviceNum,deviceName) {
       let user = JSON.parse(window.localStorage.getItem('access-user'));
       var param = Object.assign({}, {userPhone: user.userPhone , token: user.token ,deviceNum: deviceNum});
-  
+
       swal({
         title: "确定？",
         text: "你确定要删除:" + deviceName + "  设备吗？",
@@ -193,7 +193,6 @@ export default {
               }else{
                 this.$message.error('系统正在升级中，请联系管理员！');
               }
-              
               console.log(err.response.status);
             });
           }

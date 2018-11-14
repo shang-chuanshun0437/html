@@ -25,9 +25,15 @@ const actions = {
 
 const mutations = {
     [types.LOGIN_SUCCESS](state, res) {
-        state.userPhone = res.userPhone;
-        state.token = res.token;
-        console.log('mutations:' + state.userPhone + state.token);
+      state.userPhone = res.userPhone;
+      state.token = res.token;
+      console.log(res.userPhone);
+      let result = {
+        userPhone:res.userPhone,
+        token:res.token
+      }
+      //将登录信息存储到本地
+      localStorage.setItem('access-user', JSON.stringify(result));
     }
 };
 

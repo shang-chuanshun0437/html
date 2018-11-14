@@ -12,4 +12,7 @@ export const DEVICE_MANAGE_LIST = "DEVICE_MANAGE_LIST";
 export const DEVICE_UNMANAGE_LIST = "DEVICE_UNMANAGE_LIST";
 
 //子用户
-export const SUBUSER_LIST = "SUBUSER_LIST";
+export const DEVICE_USER_LIST = "DEVICE_USER_LIST";
+
+//头部导航栏是否显示
+export const TOP_SHOW = "TOP_SHOW";

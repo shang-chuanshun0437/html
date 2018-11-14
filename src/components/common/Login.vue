@@ -16,7 +16,7 @@
       <el-button type="primary" style="width:40%;" @click.native.prevent="login"  :loading="loading">登录</el-button>
       <el-button type="primary" style="width:40%;" @click.native.prevent="register" :loading="loading">注册</el-button>
     </el-form-item>
-    
+
   </el-form>
 </template>
 
@@ -44,11 +44,14 @@
         checked: true
       };
     },
+    created() {
+      this.$store.dispatch("top/hide",false);
+    },
     methods:{
         register(){
           this.$router.push({path: '/register'});
         },
-        login(){          
+        login(){
           var loginParams = Object.assign(
             {},
             { userPhone: this.account.userPhone, password: this.account.pwd}
@@ -58,13 +61,8 @@
             .then(res => {
               if (res.result.retCode === 0) {
                 this.$store.dispatch("login/login",res);
-                let result = {
-                  userPhone:res.userPhone,
-                  token:res.token
-                }
-                //将登录信息存储到本地
-                localStorage.setItem('access-user', JSON.stringify(result));  
                 //路由跳转
+                this.$store.dispatch("top/hide",true);
                 this.$router.push({path: '/summary'});
               }
             })

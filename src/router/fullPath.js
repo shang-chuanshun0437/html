@@ -13,8 +13,7 @@ import User from '../views/user/User'
 import UserList from '../views/user/UserList'
 
 import Instructions from '@/components/Instructions'
-import store from '../store/index'
-import { mapState } from "vuex";
+import Account from '../views/account/Account'
 // 懒加载方式，当路由被访问的时候才加载对应组件
 //const Login = resolve => require(['@/components/Login'], resolve)
 
@@ -65,6 +64,12 @@ let router = new Router({
                 { path: '/device/user/list', component: UserList, name: 'userList' },
             ]
         },
+        {
+          path: '/account/private',
+          name: 'account',
+          component: Account,
+        },
+
     ]
 
 })
