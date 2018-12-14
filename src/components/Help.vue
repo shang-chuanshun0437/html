@@ -1,6 +1,8 @@
 <template>
-    <div class="instruction">
-        <span >使用说明</span>
+    <div class="help">
+        <span >技术支持：</span>
+      <div>联系电话：18753137390</div>
+      <div>微信号：18753137390</div>
     </div>
 </template>
 
@@ -18,7 +20,7 @@
 </script>
 
 <style scoped>
-.instruction{
+.help{
   position: relative;
   width: 100%;
   height: 100%;

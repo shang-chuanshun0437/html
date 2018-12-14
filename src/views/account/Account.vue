@@ -74,15 +74,16 @@
         API.POST(URL.ACCOUNT_INFO_URL, param)
           .then(res => {
             if (res.result.retCode === 0) {
-              this.form.userPhone = res.getUserInfoResponse.userPhone;
-              this.form.userName = res.getUserInfoResponse.userName;
-              this.form.userEmail = res.getUserInfoResponse.userEmail;
-              this.form.userAddress = res.getUserInfoResponse.userAddress;
-              this.form.createTime = res.getUserInfoResponse.createTime;
+              this.form.userPhone = res.user.userPhone;
+              this.form.userName = res.user.userName;
+              this.form.userEmail = res.user.userEmail;
+              this.form.userAddress = res.user.userAddress;
+              this.form.createTime = res.user.createTime;
             }
           })
           .catch(err => {
             console.log(err);
+            this.$message.error("服务器异常,请联系客服");
           });
       },
       editInfo(){
@@ -109,6 +110,7 @@
           })
           .catch(err => {
             console.log(err);
+            this.$message.error("服务器异常,请联系客服");
           });
       },
       unSaveInfo(){

@@ -14,6 +14,7 @@
             <el-menu-item index = "/summary" style = "font-size: 16px;">首页</el-menu-item>
             <el-menu-item index="/user/device/manage" style = "font-size: 16px;">设备管理</el-menu-item>
             <el-menu-item index="/device/user/list" style = "font-size: 16px;">用户管理</el-menu-item>
+            <el-menu-item index="/device/openHistory/list" style = "font-size: 16px;">开门记录</el-menu-item>
             <el-menu-item index="/account/private" style = "font-size: 16px;" >账户信息</el-menu-item>
           </el-menu>
         </div>

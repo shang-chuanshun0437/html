@@ -64,10 +64,14 @@
                 //路由跳转
                 this.$store.dispatch("top/hide",true);
                 this.$router.push({path: '/summary'});
+              }else {
+                this.$message.error("手机号或密码错误");
               }
             })
             .catch(err => {
               console.log(err);
+              this.$message.error("服务器异常,请联系客服");
+              console.log(err.response);
             });
         }
     }

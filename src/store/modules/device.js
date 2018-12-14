@@ -40,7 +40,7 @@ const mutations = {
         if (param.count === 0) {
             state.manageList = null;
         } else {
-            state.manageList = [].concat(param.getDeviceInfoResponses);
+            state.manageList = [].concat(param.deviceOuts);
         }
 
         console.log(state.manageList);
@@ -51,7 +51,7 @@ const mutations = {
         if (param.count === 0) {
             state.unmanageList = null;
         } else {
-            state.unmanageList = [].concat(param.getUnManageDeviceRes);
+            state.unmanageList = [].concat(param.queryUnManageDeviceOutRes);
         }
         console.log(state.unmanageList);
     }

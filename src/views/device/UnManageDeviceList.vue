@@ -25,7 +25,7 @@
       <el-table-column prop="createTime" label="添加时间"></el-table-column>
       <el-table-column prop="expiryDate" label="有效期"></el-table-column>
       <el-table-column prop="ownerPhone" label="管理员账号"></el-table-column>
-      
+
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button size="mini" type="danger" @click="handleDelete(scope.row.deviceNum,scope.row.deviceName)">删除</el-button>
@@ -112,6 +112,7 @@ export default {
         })
         .catch(err => {
           console.log(err);
+          this.$message.error("服务器异常,请联系客服");
         });
     },
 
@@ -128,7 +129,7 @@ export default {
     handleDelete(deviceNum,deviceName) {
       let user = JSON.parse(window.localStorage.getItem('access-user'));
       var param = Object.assign({}, {userPhone: user.userPhone , token: user.token ,deviceNum: deviceNum});
-  
+
       swal({
         title: "确定？",
         text: "你确定要删除:" + deviceName + "  设备吗？删除之后，您将没有开门的权限",
@@ -174,7 +175,7 @@ export default {
               }else{
                 this.$message.error('系统正在升级中，请联系管理员！');
               }
-              
+
               console.log(err.response.status);
             });
           }

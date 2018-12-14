@@ -23,3 +23,7 @@ export const DEVICE_USER_URL = "/user/device/manage/queryUserList"; //查询管�
 export const ACCOUNT_INFO_URL = "/user/query/userInfo"; //查询账户详情
 export const ACCOUNT_UPDATE_URL = "/user/updateUser"; //查询账户详情
 export const MODIFY_PWD_URL = "/user/modifyPassword"; //修改账户的密码
+
+//开门记录
+export const DEVICE_OPEN_HISTORY_URL = "/open/door/history/user/query/list"; //查询管理员设备下的所有用户
+

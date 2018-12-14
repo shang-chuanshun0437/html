@@ -31,10 +31,7 @@ export const catchError = function(error) {
                 });
                 break;
             default:
-                Vue.prototype.$message({
-                    message: error.response.data.message || "服务端异常，请联系技术支持",
-                    type: "error"
-                });
+              this.$message.error("服务器异常,请联系客服");
 
         }
     }

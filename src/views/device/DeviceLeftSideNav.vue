@@ -9,16 +9,18 @@
       <el-menu :default-active="$route.path" router text-color="#FFFFFF" background-color="#48576a" >
         <el-submenu index="/user/device">
           <template slot="title">
-            <i class="el-icon-menu"></i>
+            <i class="el-icon-ali-suo"></i>
             <span style = "font-size: 16px;" > 我的设备</span>
           </template>
-          
+
           <el-menu-item index="/user/device/manage" style = "font-size: 16px;">
-            <i class="el-icon-menu"></i>
+            <i class="el-icon-ali-guanliyuan"></i>
             <span > 管理的设备 </span>
           </el-menu-item>
-          <el-menu-item index="/user/device/unmanage" style = "font-size: 16px;">普通设备</el-menu-item>
-    
+          <el-menu-item index="/user/device/unmanage" style = "font-size: 16px;">
+            <i class="el-icon-ali-putong"></i>
+            <span > 普通设备 </span>
+          </el-menu-item>
         </el-submenu>
       </el-menu>
     </div>
@@ -33,7 +35,7 @@
           </el-col>
         </div>
       </section>
-    
+
 </el-col>
  </el-row>
 
@@ -65,7 +67,7 @@ export default {
     min-height: 100%;
     min-height: 700px;
   }
-  
+
   /* 右侧内容区域 */
   .content-container {
     background-color: #f0f3f5;
@@ -81,5 +83,5 @@ export default {
     background-color: #fff;
     box-sizing: border-box;
   }
- 
+
 </style>

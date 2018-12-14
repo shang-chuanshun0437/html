@@ -22,12 +22,12 @@
           </el-col>
         </el-form-item>
         <el-form-item label="有效期" prop="expiryDate">
-          <el-date-picker type="datetime" placeholder="请选择设备有效期" format="yyyy-MM-dd HH:mm:ss" value-format="yyyyMMddHHmmss"
+          <el-date-picker type="datetime" placeholder="请选择设备有效期" format="yyyy-MM-dd HH:mm:ss" value-format="yyyy-MM-dd HH:mm:ss"
             v-model="ruleForm.expiryDate">
           </el-date-picker>
         </el-form-item>
       </el-form>
-      
+
       <span slot="footer" class="dialog-footer">
           <el-button @click.native="cancel()">取消</el-button>
           <el-button type="primary" :disabled="confirm" @click.native="handleEdit()">确定</el-button>
@@ -52,13 +52,13 @@ export default {
       rules: {
         deviceName: [
           { required: true, message: "请填写设备名称", trigger: "blur" }
-        ],   
+        ],
         deviceNum: [
           { required: true, message: "请填写设备编码", trigger: "blur" }
-        ], 
+        ],
         needBindPhone: [
           { required: true, message: "请输入手机号", trigger: "blur" }
-        ], 
+        ],
         expiryDate: [
           { required: true, message: "请输入设备有效期", trigger: "blur" }
         ],
@@ -85,7 +85,7 @@ export default {
             message: '添加成功',
             type: 'success'
             });
-            this.$emit("update:show", false); 
+            this.$emit("update:show", false);
             parent.location.reload();
           }else if(res.result.retCode === 1002)
           {
@@ -95,14 +95,14 @@ export default {
         })
         .catch(err => {
           this.confirm=false;
-          if(err.response.status === 400) 
+          if(err.response.status === 400)
           {
             this.$message.error('请输入11位的手机号！');
           }
           else{
             this.$message.error('后台正在升级，请联系管理员！');
-          }       
-          
+          }
+
         });
     },
     handleClose() {
@@ -121,7 +121,7 @@ export default {
       this.confirm = true;
     }
   },
-  
+
 };
 </script>
 

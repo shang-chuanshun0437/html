@@ -117,6 +117,7 @@ export default {
         })
         .catch(err => {
           console.log(err);
+          this.$message.error('后台正在升级，请联系管理员！');
         });
     },
 

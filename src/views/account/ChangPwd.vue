@@ -95,6 +95,7 @@ export default {
           .catch(err => {
             this.confirm=false;
             console.log(err);
+            this.$message.error("服务器异常,请联系客服");
           });
       }else{
         this.$message.error('确认密码错误！');

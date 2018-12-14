@@ -22,7 +22,7 @@
           </el-col>
         </el-form-item>
         <el-form-item label="有效期" prop="expiryDate">
-          <el-date-picker type="datetime" placeholder="请选择设备有效期" format="yyyy-MM-dd HH:mm:ss" value-format="yyyyMMddHHmmss"
+          <el-date-picker type="datetime" placeholder="请选择设备有效期" format="yyyy-MM-dd HH:mm:ss" value-format="yyyy-MM-dd HH:mm:ss"
             v-model="ruleForm.expiryDate">
           </el-date-picker>
         </el-form-item>
@@ -86,6 +86,7 @@ export default {
         .catch(err => {
           this.confirm=false;
           console.log(err);
+          this.$message.error("服务器异常,请联系客服");
         });
     },
     handleClose() {

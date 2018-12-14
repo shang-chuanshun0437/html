@@ -18,19 +18,19 @@ const actions = {
     //查询用户管理的设备下的用户
     list({ commit }, param) {
         return new Promise((resolve, reject) => {
-            commit(types.DEVICE_USER_LIST, param);
+            commit(types.DEVICE_OPEN_HISTORY_LIST, param);
         });
     },
 };
 
 const mutations = {
-    [types.DEVICE_USER_LIST](state, param) {
+    [types.DEVICE_OPEN_HISTORY_LIST](state, param) {
         console.log(param);
         state.total = param.count;
         if (param.count === 0) {
             state.list = null;
         } else {
-            state.list = [].concat(param.queryDeviceUserRes);
+            state.list = [].concat(param.openDoorHistories);
         }
 
         console.log(state.list);

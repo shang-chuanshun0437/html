@@ -8,11 +8,13 @@ import Summary from '@/components/Summary'
 import Device from '../views/device/Device'
 import ManageDeviceList from '../views/device/ManageDeviceList'
 import UnManageDeviceList from '../views/device/UnManageDeviceList'
+import OpenDoorHistory from '../views/device/OpenDoorHistory'
 
 import User from '../views/user/User'
 import UserList from '../views/user/UserList'
 
 import Instructions from '@/components/Instructions'
+import Help from '@/components/Help'
 import Account from '../views/account/Account'
 // 懒加载方式，当路由被访问的时候才加载对应组件
 //const Login = resolve => require(['@/components/Login'], resolve)
@@ -42,7 +44,8 @@ let router = new Router({
             redirect: '/summary',
             children: [
                 { path: '/summary', component: Summary, name: 'summary' },
-                { path: '/instructions', component: Instructions, name: 'instructions' }
+                { path: '/instructions', component: Instructions, name: 'instructions' },
+                { path: '/help', component: Help, name: 'help' }
             ]
         },
         {
@@ -69,7 +72,11 @@ let router = new Router({
           name: 'account',
           component: Account,
         },
-
+      {
+        path: '/device/openHistory/list',
+        name: 'openDoorHistory',
+        component: OpenDoorHistory,
+      },
     ]
 
 })

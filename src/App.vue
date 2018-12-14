@@ -1,13 +1,10 @@
 <template>
-<div id = "app">
-<el-row>
-    <div >
-     <Top></Top>
-    </div>
-</el-row>
-  <router-view></router-view>
-</div>
-
+  <div id="content" class="routerview">
+    <transition name="fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
+    <Top></Top>
+  </div>
 </template>
 
 <script>
@@ -30,6 +27,14 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+  .routerview{
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+  }
 </style>

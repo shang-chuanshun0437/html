@@ -17,7 +17,7 @@
           </el-col>
         </el-form-item>
       </el-form>
-      
+
       <span slot="footer" class="dialog-footer">
           <el-button @click.native="cancel()">取消</el-button>
           <el-button type="primary" :disabled="confirm" @click.native="handleEdit()">确定</el-button>
@@ -40,7 +40,7 @@ export default {
       rules: {
         deviceName: [
           { required: true, message: "请填写设备编码", trigger: "blur" }
-        ],   
+        ],
       }
     };
   },
@@ -60,7 +60,7 @@ export default {
         .then(res => {
           if (res.result.retCode === 0) {
             this.confirm=false;
-            this.$emit("update:show", false); 
+            this.$emit("update:show", false);
             parent.location.reload();
             this.$message({
             message: '修改成功',
@@ -74,7 +74,8 @@ export default {
           }
         })
         .catch(err => {
-          this.confirm=false;          
+          this.confirm=false;
+          this.$message.error('后台正在升级，请联系管理员！');
           console.log(err);
         });
     },

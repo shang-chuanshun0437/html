@@ -10,7 +10,7 @@
     <el-form-item prop="verificationCode" style="width:100%;">
       <el-input type="text" style="width:60%;" v-model="account.verificationCode" auto-complete="off"
        placeholder="请输入短信验证码"></el-input>
-             
+
       <el-button type="text" :disabled="disabled" @click.native.prevent="getCode">{{btnCode}}</el-button>
     </el-form-item>
 
@@ -22,7 +22,7 @@
     <el-form-item style="width:100%;">
       <el-button type="primary" style="width:100%;" @click.native.prevent="register" :loading="loading">注册</el-button>
     </el-form-item>
-    
+
   </el-form>
 </template>
 
@@ -51,6 +51,9 @@ export default {
       checked: true
     };
   },
+  created() {
+    this.$store.dispatch("top/hide",false);
+  },
   methods: {
     register() {
       let that = this;
@@ -74,6 +77,7 @@ export default {
             })
             .catch(err => {
               console.log(err);
+              this.$message.error("服务器异常,请联系客服");
             });
         }
       });
@@ -112,6 +116,7 @@ export default {
             }
           })
           .catch(err => {
+            this.$message.error("服务器异常,请联系客服");
             console.log(err);
           });
       }

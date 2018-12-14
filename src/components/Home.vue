@@ -1,10 +1,7 @@
 <template>
-<el-row>
-    <div>
-     <HomeLeftSideNav></HomeLeftSideNav>
-    </div>
-</el-row>
-
+  <div class="homeWrapper">
+   <HomeLeftSideNav></HomeLeftSideNav>
+  </div>
 </template>
 
 <script>
@@ -16,11 +13,18 @@ export default {
   components: {
     HomeLeftSideNav
   }
-  
+
 }
 </script>
 
 <style scoped>
-  
-    
+.homeWrapper{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
 </style>

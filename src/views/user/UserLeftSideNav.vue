@@ -9,15 +9,15 @@
       <el-menu :default-active="$route.path" router text-color="#FFFFFF" background-color="#48576a" >
         <el-submenu index="/user/device">
           <template slot="title">
-            <i class="el-icon-menu"></i>
+            <i class="el-icon-ali-yonghuguanli"></i>
             <span style = "font-size: 16px;" > 用户管理</span>
           </template>
-          
+
           <el-menu-item index="/device/user/list" style = "font-size: 16px;">
-            <i class="el-icon-menu"></i>
+            <i class="el-icon-ali-user"></i>
             <span > 用户列表 </span>
           </el-menu-item>
-    
+
         </el-submenu>
       </el-menu>
     </div>
@@ -32,7 +32,7 @@
           </el-col>
         </div>
       </section>
-    
+
 </el-col>
  </el-row>
 
@@ -64,7 +64,7 @@ export default {
     min-height: 100%;
     min-height: 700px;
   }
-  
+
   /* 右侧内容区域 */
   .content-container {
     background-color: #f0f3f5;
@@ -80,5 +80,5 @@ export default {
     background-color: #fff;
     box-sizing: border-box;
   }
- 
+
 </style>

@@ -81,6 +81,7 @@ export default {
           }
           this.confirm=false;
           console.log(err);
+          this.$message.error("服务器异常,请联系客服");
         });
     },
     handleClose() {
